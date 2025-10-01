@@ -1,6 +1,6 @@
-# permanent-test
+# simple-todo-app
 
-Testing permanent fixes
+a simple to do app
 
 ## Getting Started
 
@@ -30,4 +30,4 @@ npm run build
 ## Deployment
 
 This project is automatically deployed via the mini-do-backend system.
-Access it at: http://localhost:8081/testuser456-permanent-test/
+Access it at: http://localhost:8081/6yxhfjtg1-simple-todo-app/
