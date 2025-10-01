@@ -1,6 +1,6 @@
-# test
+# simple-todo-app-4
 
-test project
+a simple to do app
 
 ## Getting Started
 
@@ -30,4 +30,4 @@ npm run build
 ## Deployment
 
 This project is automatically deployed via the mini-do-backend system.
-Access it at: http://localhost:8081/testuser-test/
+Access it at: http://localhost:8081/oac4ognr6-simple-todo-app-4/

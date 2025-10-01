@@ -9,10 +9,10 @@ function App() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Welcome to preview-test
+            Welcome to simple-todo-app-4
           </h1>
           <p className="text-lg text-gray-600 mb-8">
-            Testing preview functionality
+            a simple to do app
           </p>
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
             <h2 className="text-2xl font-semibold mb-4">Counter Example</h2>
