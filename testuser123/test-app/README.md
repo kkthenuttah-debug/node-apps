@@ -1,6 +1,6 @@
-# my-fav-app
+# test-app
 
-a modern fav app
+Test application
 
 ## Getting Started
 
@@ -30,4 +30,4 @@ npm run build
 ## Deployment
 
 This project is automatically deployed via the mini-do-backend system.
-Access it at: http://localhost:8081/8uxt8366t-my-fav-app/
+Access it at: http://localhost:8081/testuser123-test-app/
