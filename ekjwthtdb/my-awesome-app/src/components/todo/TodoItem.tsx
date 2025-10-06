@@ -1,1 +1,0 @@
-// This file is not needed as the TodoItem is integrated into TodoApp.tsx
