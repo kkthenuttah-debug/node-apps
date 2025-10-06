@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "clsx": "latest"
+    "tailwind-merge": "latest"
   }
 }
