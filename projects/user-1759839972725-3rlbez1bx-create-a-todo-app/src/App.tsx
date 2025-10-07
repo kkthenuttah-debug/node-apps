@@ -1,38 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import AddTodoForm from './components/AddTodoForm';
+import TodoItem from './components/TodoItem';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
-      <div className="flex items-center gap-8 mb-8">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="h-24 w-24" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="h-24 w-24 animate-spin [animation-duration:10s]" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-5xl font-bold mb-8">create-a-todo-app</h1>
-      <div className="p-8 rounded-lg bg-card border">
-        <button 
-          onClick={() => setCount((count) => count + 1)}
-          className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-        >
-          count is {count}
-        </button>
-        <p className="mt-4 text-muted-foreground">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="mt-8 text-muted-foreground/80">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
 }
 
-export default App
+const App: React.FC = () => {
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  const addTodo = (text: string) => {
+    const newTodo: Todo = {
+      id: uuidv4(),
+      text,
+      completed: false,
+    };
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+  };
+
+  const toggleTodo = (id: string) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const deleteTodo = (id: string) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-6">
+      <main className="w-full max-w-md space-y-6">
+        <h1 className="text-5xl font-extrabold text-center text-primary drop-shadow-lg animate-fade-in">
+          My Todo App
+        </h1>
+        <AddTodoForm addTodo={addTodo} />
+        <div className="space-y-4">
+          {todos.length === 0 ? (
+            <p className="text-center text-muted-foreground text-lg animate-fade-in">
+              No todos yet! Add some above.
+            </p>
+          ) : (
+            todos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                toggleTodo={toggleTodo}
+                deleteTodo={deleteTodo}
+              />
+            ))
+          )}
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default App;
