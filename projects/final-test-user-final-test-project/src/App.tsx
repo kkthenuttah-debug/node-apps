@@ -1,38 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './components/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
-      <div className="flex items-center gap-8 mb-8">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="h-24 w-24" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="h-24 w-24 animate-spin [animation-duration:10s]" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-5xl font-bold mb-8">final-test-project</h1>
-      <div className="p-8 rounded-lg bg-card border">
-        <button 
-          onClick={() => setCount((count) => count + 1)}
-          className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-        >
-          count is {count}
-        </button>
-        <p className="mt-4 text-muted-foreground">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="mt-8 text-muted-foreground/80">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      <Header />
+      <main className="container mx-auto py-8 px-4">
+        <h1 className="text-4xl font-bold text-center text-primary font-serif">Welcome to Esquire Solicitors</h1>
+        <p className="text-center text-muted-foreground mt-4">Your trusted legal partner.</p>
+      </main>
     </div>
-  )
+  );
 }
+
+export default App;
 
 export default App
