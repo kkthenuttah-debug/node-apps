@@ -4,104 +4,113 @@
  
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.1%;
     --radius: 0.5rem;
 
-    /* Esquire Solicitors Palette - Sophisticated and Professional */
-    --esquire-50: 210 20% 98%;    /* Lightest Grey-Blue */
-    --esquire-100: 210 18% 90%;   /* Very Light Grey-Blue */
-    --esquire-200: 210 15% 80%;   /* Light Grey-Blue */
-    --esquire-300: 210 12% 70%;   /* Medium Light Grey-Blue */
-    --esquire-400: 210 10% 50%;   /* Medium Grey-Blue */
-    --esquire-500: 210 8% 30%;    /* Main Brand Blue-Grey */
-    --esquire-600: 210 10% 25%;   /* Darker Blue-Grey */
-    --esquire-700: 210 12% 20%;   /* Dark Blue-Grey */
-    --esquire-800: 210 15% 15%;   /* Very Dark Blue-Grey */
-    --esquire-900: 210 20% 10%;   /* Deepest Blue-Grey */
-    --esquire-950: 210 25% 5%;    /* Near Black Blue-Grey */
+    /* Custom colors for Esquire Solicitors */
+    --esquire-blue-dark: 210 30% 20%;
+    --esquire-blue-medium: 210 20% 40%;
+    --esquire-blue-light: 210 10% 80%;
+    --esquire-gold: 40 90% 55%;
+    --esquire-gold-dark: 40 90% 45%;
 
-    /* Semantic Colors based on Esquire Palette */
-    --background: var(--esquire-50);
-    --foreground: var(--esquire-900);
-
-    --card: var(--esquire-100);
-    --card-foreground: var(--esquire-900);
-
-    --popover: var(--esquire-50);
-    --popover-foreground: var(--esquire-900);
-
-    --primary: var(--esquire-700);
-    --primary-foreground: var(--esquire-50);
-
-    --secondary: var(--esquire-200);
-    --secondary-foreground: var(--esquire-800);
-
-    --muted: var(--esquire-100);
-    --muted-foreground: var(--esquire-600);
-
-    --accent: var(--esquire-300);
-    --accent-foreground: var(--esquire-950);
-
-    --destructive: 0 84.2% 60.2%; /* Keep default for destructive actions */
-    --destructive-foreground: 210 40% 98%;
-
-    --border: var(--esquire-200);
-    --input: var(--esquire-200);
-    --ring: var(--esquire-700);
+    /* Semantic Colors */
+    --background: 210 20% 98%; /* Light background */
+    --foreground: var(--esquire-blue-dark); /* Dark text */
+    --primary: var(--esquire-blue-dark); /* Main brand color */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --secondary: var(--esquire-blue-light); /* Lighter accent */
+    --secondary-foreground: var(--esquire-blue-dark); /* Dark text on secondary */
+    --accent: var(--esquire-gold); /* Accent color */
+    --accent-foreground: var(--esquire-blue-dark); /* Dark text on accent */
+    --border: var(--esquire-blue-light);
+    --input: var(--esquire-blue-light);
+    --ring: var(--esquire-blue-medium);
 
     /* Gradients */
-    --gradient-brand: linear-gradient(45deg, hsl(var(--esquire-700)), hsl(var(--esquire-500)));
-    --gradient-brand-dark: linear-gradient(45deg, hsl(var(--esquire-900)), hsl(var(--esquire-700)));
-    --gradient-hero: linear-gradient(to right, hsl(var(--esquire-50)), hsl(var(--esquire-200)));
-    --gradient-section: linear-gradient(180deg, hsl(var(--esquire-50)), hsl(var(--esquire-100)));
+    --gradient-hero: linear-gradient(to right, hsl(var(--background)), hsl(var(--secondary)));
+    --gradient-button: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--esquire-blue-medium)));
+    --gradient-button-hover: linear-gradient(45deg, hsl(var(--esquire-blue-medium)), hsl(var(--primary)));
 
     /* Shadows */
-    --shadow-strong: 0 10px 30px hsl(var(--esquire-900) / 0.1);
-    --shadow-hover: 0 15px 40px hsl(var(--esquire-900) / 0.2);
-  }
-
-  .dark {
-    --background: var(--esquire-950);
-    --foreground: var(--esquire-50);
-
-    --card: var(--esquire-900);
-    --card-foreground: var(--esquire-50);
-
-    --popover: var(--esquire-950);
-    --popover-foreground: var(--esquire-50);
-
-    --primary: var(--esquire-400);
-    --primary-foreground: var(--esquire-950);
-
-    --secondary: var(--esquire-800);
-    --secondary-foreground: var(--esquire-100);
-
-    --muted: var(--esquire-900);
-    --muted-foreground: var(--esquire-400);
-
-    --accent: var(--esquire-700);
-    --accent-foreground: var(--esquire-50);
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: var(--esquire-800);
-    --input: var(--esquire-800);
-    --ring: var(--esquire-400);
-
-    /* Gradients for Dark Mode */
-    --gradient-brand: linear-gradient(45deg, hsl(var(--esquire-400)), hsl(var(--esquire-600)));
-    --gradient-brand-dark: linear-gradient(45deg, hsl(var(--esquire-200)), hsl(var(--esquire-400)));
-    --gradient-hero: linear-gradient(to right, hsl(var(--esquire-950)), hsl(var(--esquire-800)));
-    --gradient-section: linear-gradient(180deg, hsl(var(--esquire-950)), hsl(var(--esquire-900)));
-  }
-    --gradient-section: linear-gradient(180deg, hsl(var(--esquire-950)), hsl(var(--esquire-900)));
-  }
-    --gradient-brand-dark: linear-gradient(45deg, hsl(var(--primary-dark)), hsl(var(--primary)));
-    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px hsl(var(--foreground) / 0.1), 0 2px 4px -2px hsl(var(--foreground) / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--foreground) / 0.1), 0 4px 6px -4px hsl(var(--foreground) / 0.1);
   }
  
   .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Custom colors for Esquire Solicitors - Dark Mode */
+    --esquire-blue-dark: 210 10% 80%; /* Light blue in dark mode */
+    --esquire-blue-medium: 210 20% 60%;
+    --esquire-blue-light: 210 30% 20%;
+    --esquire-gold: 40 90% 55%;
+    --esquire-gold-dark: 40 90% 45%;
+
+    /* Semantic Colors - Dark Mode */
+    --background: var(--esquire-blue-dark); /* Dark background */
+    --foreground: 0 0% 100%; /* White text */
+    --primary: var(--esquire-gold); /* Gold primary in dark mode */
+    --primary-foreground: var(--esquire-blue-dark); /* Dark text on primary */
+    --secondary: var(--esquire-blue-light);
+    --secondary-foreground: 0 0% 100%;
+    --accent: var(--esquire-blue-medium);
+    --accent-foreground: 0 0% 100%;
+    --border: var(--esquire-blue-light);
+    --input: var(--esquire-blue-light);
+    --ring: var(--esquire-gold);
+
+    /* Gradients - Dark Mode */
+    --gradient-hero: linear-gradient(to right, hsl(var(--background)), hsl(var(--esquire-blue-light)));
+    --gradient-button: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--esquire-gold-dark)));
+    --gradient-button-hover: linear-gradient(45deg, hsl(var(--esquire-gold-dark)), hsl(var(--primary)));
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
     --primary-light: 210 80% 20%;
     --primary-dark: 210 80% 5%;
     --secondary-foreground: 210 40% 98%;
