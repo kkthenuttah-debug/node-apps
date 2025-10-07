@@ -2,62 +2,71 @@
 @tailwind components;
 @tailwind utilities;
  
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
- 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
+    --background: 210 30% 98%; /* Light gray background */
+    --foreground: 220 20% 15%; /* Darker gray for text */
+
+    --card: 0 0% 100%; /* White card background */
+    --card-foreground: 220 20% 15%; /* Darker gray for card text */
+
+    --popover: 0 0% 100%; /* White popover background */
+    --popover-foreground: 220 20% 15%; /* Darker gray for popover text */
+
+    --primary: 220 50% 20%; /* Deep blue for primary actions */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 210 20% 90%; /* Light gray for secondary elements */
+    --secondary-foreground: 220 20% 15%; /* Darker gray for secondary text */
+
+    --tertiary: 40 80% 60%; /* Subtle gold accent */
+    --tertiary-foreground: 220 20% 15%; /* Darker gray for tertiary text */
+
+    --muted: 210 20% 95%; /* Very light gray for muted elements */
+    --muted-foreground: 220 15% 40%; /* Medium gray for muted text */
+
+    --accent: 220 50% 25%; /* Slightly darker blue for accents */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+
+    --destructive: 0 80% 50%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
+
+    --border: 210 20% 85%; /* Light gray for borders */
+    --input: 210 20% 90%; /* Light gray for input fields */
+    --ring: 220 50% 20%; /* Deep blue for focus rings */
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
+    --background: 220 20% 10%; /* Dark background */
+    --foreground: 210 20% 90%; /* Light gray for text */
+
+    --card: 220 15% 15%; /* Darker card background */
+    --card-foreground: 210 20% 90%; /* Light gray for card text */
+
+    --popover: 220 15% 15%; /* Darker popover background */
+    --popover-foreground: 210 20% 90%; /* Light gray for popover text */
+
+    --primary: 210 40% 60%; /* Lighter blue for primary actions in dark mode */
+    --primary-foreground: 220 20% 10%; /* Dark text on primary */
+
+    --secondary: 220 15% 25%; /* Medium dark gray for secondary elements */
+    --secondary-foreground: 210 20% 90%; /* Light gray for secondary text */
+
+    --tertiary: 40 70% 50%; /* Gold accent for dark mode */
+    --tertiary-foreground: 210 20% 90%; /* Light gray for tertiary text */
+
+    --muted: 220 15% 20%; /* Dark gray for muted elements */
+    --muted-foreground: 210 10% 60%; /* Lighter gray for muted text */
+
+    --accent: 210 40% 65%; /* Slightly lighter blue for accents */
+    --accent-foreground: 220 20% 10%; /* Dark text on accent */
+
+    --destructive: 0 70% 40%; /* Darker red for destructive actions */
+    --destructive-foreground: 210 20% 90%; /* Light text on destructive */
+
+    --border: 220 15% 25%; /* Dark gray for borders */
+    --input: 220 15% 20%; /* Dark gray for input fields */
+    --ring: 210 40% 60%; /* Lighter blue for focus rings */
     --destructive-foreground: 210 40% 98%;
  
     --border: 217.2 32.6% 17.5%;
