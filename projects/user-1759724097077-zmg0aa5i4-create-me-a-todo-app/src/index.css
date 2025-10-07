@@ -5,69 +5,49 @@
  
 @layer base {
   :root {
-    --background: 220 10% 98%; /* Light gray background */
-    --foreground: 220 20% 20%; /* Dark gray text */
+    --background: 220 20% 10%; /* Dark background for the calculator */
+    --foreground: 220 10% 90%; /* Light gray text */
  
-    --card: 0 0% 100%; /* White card background */
-    --card-foreground: 220 20% 20%; /* Dark gray text on card */
+    --display-background: 220 20% 10%;
+    --display-foreground: 0 0% 100%;
  
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 20%;
+    --button-dark: 220 20% 20%; /* Dark gray buttons */
+    --button-dark-foreground: 0 0% 100%;
+    --button-light: 220 10% 30%; /* Lighter gray buttons for AC, +/-, % */
+    --button-light-foreground: 0 0% 100%;
+    --button-accent: 25 85% 50%; /* Orange accent for operation buttons */
+    --button-accent-foreground: 0 0% 100%;
  
-    --primary: 210 90% 50%; /* Bright blue primary */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --border: 220 20% 15%;
+    --ring: 220 20% 25%;
  
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --radius: 1.5rem; /* More rounded corners for calculator buttons */
  
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Custom gradients and shadows for a sleek look */
+    --gradient-button-dark: linear-gradient(145deg, hsl(var(--button-dark)) 0%, hsl(var(--button-dark) / 0.7) 100%);
+    --gradient-button-light: linear-gradient(145deg, hsl(var(--button-light)) 0%, hsl(var(--button-light) / 0.7) 100%);
+    --gradient-button-accent: linear-gradient(145deg, hsl(var(--button-accent)) 0%, hsl(var(--button-accent) / 0.7) 100%);
  
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
-    --radius: 0.5rem;
- 
-    /* Custom gradients */
-    --gradient-blue-green: linear-gradient(135deg, hsl(210 90% 50%), hsl(160 70% 50%));
-    --gradient-purple-pink: linear-gradient(135deg, hsl(280 80% 60%), hsl(330 90% 60%));
+    --shadow-button: 5px 5px 10px hsl(var(--background) / 0.5), -5px -5px 10px hsl(var(--foreground) / 0.1);
+    --shadow-button-inset: inset 3px 3px 7px hsl(var(--background) / 0.5), inset -3px -3px 7px hsl(var(--foreground) / 0.1);
   }
  
   .dark {
-    --background: 220 20% 10%; /* Dark background */
-    --foreground: 220 10% 90%; /* Light gray text */
+    --background: 220 20% 10%;
+    --foreground: 220 10% 90%;
  
-    --card: 220 20% 15%; /* Darker card background */
-    --card-foreground: 220 10% 90%; /* Light gray text on card */
+    --display-background: 220 20% 10%;
+    --display-foreground: 0 0% 100%;
  
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --button-dark: 220 20% 20%;
+    --button-dark-foreground: 0 0% 100%;
+    --button-light: 220 10% 30%;
+    --button-light-foreground: 0 0% 100%;
+    --button-accent: 25 85% 50%;
+    --button-accent-foreground: 0 0% 100%;
  
-    --primary: 210 90% 50%; /* Bright blue primary */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 20% 15%;
+    --ring: 220 20% 25%;
   }
 }
  
@@ -78,6 +58,7 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+}
 }
     @apply border-border;
   }
