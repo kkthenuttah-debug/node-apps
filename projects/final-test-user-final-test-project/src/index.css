@@ -4,9 +4,6 @@
  
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
- 
     --radius: 0.5rem;
 
     /* Esquire Solicitors Palette - Sophisticated and Professional */
@@ -95,6 +92,8 @@
     --gradient-brand: linear-gradient(45deg, hsl(var(--esquire-400)), hsl(var(--esquire-600)));
     --gradient-brand-dark: linear-gradient(45deg, hsl(var(--esquire-200)), hsl(var(--esquire-400)));
     --gradient-hero: linear-gradient(to right, hsl(var(--esquire-950)), hsl(var(--esquire-800)));
+    --gradient-section: linear-gradient(180deg, hsl(var(--esquire-950)), hsl(var(--esquire-900)));
+  }
     --gradient-section: linear-gradient(180deg, hsl(var(--esquire-950)), hsl(var(--esquire-900)));
   }
     --gradient-brand-dark: linear-gradient(45deg, hsl(var(--primary-dark)), hsl(var(--primary)));
