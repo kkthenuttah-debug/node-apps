@@ -23,19 +23,22 @@ module.exports = {
         ring: "hsl(var(--ring))",
         foreground: "hsl(var(--foreground))",
 
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
         destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
         // Custom colors for Esquire Solicitors
         esquire: {
           50: "hsl(var(--esquire-50))",
@@ -127,6 +130,13 @@ module.exports = {
         },
         jiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+};
           '50%': { transform: 'rotate(3deg)' },
         },
       },
