@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Checkbox } from './ui/checkbox';
+import React, { useState, useEffect } from \'react\';
+import { Input } from \'./ui/input\';
+import { Button } from \'./ui/button\';
+import { Checkbox } from \'./ui/checkbox\';
+import { Label } from \'./ui/label\';
 
 interface Todo {
   id: string;
@@ -11,91 +12,91 @@ interface Todo {
 
 const TodoApp: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>(\'\');
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem(\'todos\');
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(\'todos\', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = () => {
-    if (inputValue.trim() === '') return;
+    if (inputValue.trim() === \'\') return;
     const newTodo: Todo = {
       id: Date.now().toString(),
       text: inputValue,
       completed: false,
     };
-    setTodos([...todos, newTodo]);
-    setInputValue('');
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+    setInputValue(\'\');
   };
 
-  const toggleTodo = (id: string) => {
-    setTodos(
-      todos.map((todo) =>
+  const toggleComplete = (id: string) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-4 sm:p-8 animate-fade-in">
-      <h1 className="text-5xl sm:text-7xl font-extrabold mb-8 gradient-text glow-shadow p-4 rounded-xl">
-        Todo App
-      </h1>
-
-      <div className="w-full max-w-md bg-card p-6 rounded-lg shadow-lg">
-        <div className="flex space-x-2 mb-6">
-          <Input
-            type="text"
-            placeholder="Add a new todo..."
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            className="flex-grow input-glow"
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                addTodo();
-              }
-            }}
-          />
-          <Button onClick={addTodo} className="px-6 py-2">
-            Add
-          </Button>
-        </div>
-
-        {todos.length === 0 ? (
-          <p className="text-center text-muted-foreground">No todos yet. Add one above!</p>
-        ) : (
-          <ul className="space-y-3">
-            {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className="flex items-center justify-between bg-secondary p-3 rounded-md shadow-sm animate-fade-in"
-              >
-                <div className="flex items-center space-x-3">
-                  <Checkbox
-                    checked={todo.completed}
-                    onCheckedChange={() => toggleTodo(todo.id)}
-                    id={`todo-${todo.id}`}
-                  />
-                  <label
-                    htmlFor={`todo-${todo.id}`}
-                    className={\`text-lg \${
-                      todo.completed ? 'line-through text-muted-foreground' : ''
-                    }\`}
-                  >
-                    {todo.text}
-                  </label>
-                </div>
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={() => deleteTodo(todo.id)}
-                >
-                  Delete
-                </Button>
-              </li>
-            ))}
-          </ul>
-        )}
+    <div className="container mx-auto p-4 max-w-md animate-fade-in">
+      <h1 className="text-4xl font-bold text-center mb-8 text-primary">Todo App</h1>
+      <div className="flex space-x-2 mb-6 animate-slide-in-down">
+        <Input
+          type="text"
+          placeholder="Add a new todo"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyPress={(e) => {
+            if (e.key === \'Enter\') {
+              addTodo();
+            }
+          }}
+          className="flex-grow p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+        />
+        <Button onClick={addTodo} className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200">
+          Add
+        </Button>
+      </div>
+      <div className="space-y-3">
+        {todos.map((todo) => (
+          <div
+            key={todo.id}
+            className={\`flex items-center justify-between p-4 bg-card rounded-lg shadow-md animate-slide-in-down \${
+              todo.completed ? \'opacity-60 line-through\' : \'\'
+            }\`}
+          >
+            <div className="flex items-center space-x-3">
+              <Checkbox
+                id={\`todo-\${todo.id}\`}
+                checked={todo.completed}
+                onCheckedChange={() => toggleComplete(todo.id)}
+                className="w-5 h-5 text-primary focus:ring-primary"
+              />
+              <Label htmlFor={\`todo-\${todo.id}\`} className="text-lg cursor-pointer">
+                {todo.text}
+              </Label>
+            </div>
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={() => deleteTodo(todo.id)}
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            >
+              Delete
+            </Button>
+          </div>
+        ))}
       </div>
     </div>
   );
