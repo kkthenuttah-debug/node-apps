@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import TodoApp from './TodoApp';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+    <TodoApp />
+  );
+}
+
+export default App;
       <div className="flex items-center gap-8 mb-8">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="h-24 w-24" alt="Vite logo" />
